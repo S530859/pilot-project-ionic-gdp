@@ -8,51 +8,38 @@ import { HTTP } from '@ionic-native/http';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  username: string = "";
+  email: string = "";
   password: string = "";
   constructor(public modalCtrl: ModalController, public navctrl: NavController, private http: HTTP) {
 
   }
   
-  clicked(){
+  signin(form){
     
-    let headers = {
+   /*  let headers = {
       'Content-Type': 'application/json'
     };
 
     let body = {
       username: this.username,
       password: this.password
-    };
+    }; */
 
-    // this.http.post('https://jsonplaceholder.typicode.com/posts/1', body, headers)
-    //   .then((data) => {
+    this.http.post('http://localhost:4003/api/user/signin', form.value, {})
+      .then((data) => {
 
-    //     console.log(data)
-    //     const profileModal = this.modalCtrl.create(DemoPage, { userId: 8675309 });
-    //     profileModal.present();
+        console.log(data)
+        const profileModal = this.modalCtrl.create(DemoPage, { userId: 8675309 });
+        profileModal.present();
 
-    //   })
-    //   .catch( (error) => {
+      })
+      .catch( (error) => {
 
-    //    console.log(error)
+       console.log(error)
 
-    //   });  .then((data) => {
+      }); 
+ 
 
-    //     console.log(data)
-    //     const profileModal = this.modalCtrl.create(DemoPage, { userId: 8675309 });
-    //     profileModal.present();
-
-    //   })
-    //   .catch( (error) => {
-
-    //    console.log(error)
-
-    //   });
-
-    const profileModal = this.modalCtrl.create(DemoPage, { userId: 8675309 });
-      profileModal.present();
-    
   
  
   }

@@ -1,9 +1,4 @@
-<!--
-  Generated template for the AddnewuserPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -15,15 +10,20 @@
 
 <ion-content padding>
 
-  <ion-list>
+  <form #form="ngForm" (ngSubmit)="signup(form)" novalidate>
   
     <ion-item>
-      <ion-input type="text" placeholder="firstname" [(ngModel)]="firstname"></ion-input>
+      <ion-input type="text" placeholder="firstname" [(ngModel)]="firstname" ngControl="firstName" name="firstName" required></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="text" placeholder="lastname" [(ngModel)]="lastname"></ion-input>
+      <ion-input type="text" placeholder="lastname" [(ngModel)]="lastname" ngControl="lastName"  name="lastName" required></ion-input>
     </ion-item>
-
+    <ion-item>
+      <ion-input type="text" placeholder="email"  [(ngModel)]="email" ngControl="email" name="email" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="password" [(ngModel)]="password" ngControl="password" name="password" required></ion-input>
+    </ion-item>
    
      <!--  <ion-list radio-group>
         <ion-item>
@@ -36,31 +36,48 @@
           <ion-radio checked="true" value="female" [(ngModel)]="female"></ion-radio>
         </ion-item>
       </ion-list> -->
+     
+          <ion-list radio-group [(ngModel)]="gender" ngControl="gender" name="gender" required>
+            <ion-list-header>
+              Gender
+            </ion-list-header>
+          
+            <ion-item>
+              <ion-label>Male</ion-label>
+              <ion-radio checked="true" value="male"></ion-radio>
+            </ion-item>
+          
+            <ion-item>
+              <ion-label>Female</ion-label>
+              <ion-radio value="female"></ion-radio>
+            </ion-item>
+          
+          </ion-list>
 
-        <ion-list radio-group [(ngModel)]="female">
-          <ion-list-header>
-            Gender
-          </ion-list-header>
-        
-          <ion-item>
-            <ion-label>Male</ion-label>
-            <ion-radio checked="true" value="male"></ion-radio>
-          </ion-item>
-        
-          <ion-item>
-            <ion-label>Female</ion-label>
-            <ion-radio value="female"></ion-radio>
-          </ion-item>
-        
-        </ion-list>
 
-  
-  </ion-list>
+          <ion-list radio-group [(ngModel)]="status" ngControl="status" name="status" required>
+            <ion-list-header>
+              Status
+            </ion-list-header>
+          
+            <ion-item>
+              <ion-label>Active</ion-label>
+              <ion-radio checked="true" value="ACTIVE"></ion-radio>
+            </ion-item>
+          
+            <ion-item>
+              <ion-label>InActive</ion-label>
+              <ion-radio value="INACTIVE"></ion-radio>
+            </ion-item>
+          
+          </ion-list>
+       
+              <button ion-button color="primary" block type="submit">Sign up</button>
+    
+ </form>
     
       
   
-  <div padding>
-    <button ion-button color="primary" block (click)="signup()">Sign up</button>
-  </div>
+  
 
 </ion-content>

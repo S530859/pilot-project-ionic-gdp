@@ -6,21 +6,22 @@
 
 <ion-content>
 
-  <ion-list>
-
+  <form #form="ngForm" (ngSubmit)="signin(form)" >
     <ion-item>
-      <ion-input type="text" placeholder="username" [(ngModel)]="username"></ion-input>
+      <ion-input type="text" placeholder="email" name="email" [(ngModel)]="email" ngControl="email"></ion-input>
     </ion-item>
-
+    
     <ion-item>
-      <ion-input type="password" placeholder="password" [(ngModel)]="password"></ion-input>
+      <ion-input type="password" placeholder="password" [(ngModel)]="password" ngControl="password" name="password"></ion-input>
     </ion-item>
+    
+    <div padding>
+      <button ion-button color="primary" block type="submit">Sign In</button>
+    </div>
 
-  </ion-list>
+  </form>
 
-  <div padding>
-    <button ion-button color="primary" block (click)="clicked()">Sign In</button>
-  </div>
+    
 
 
 </ion-content>

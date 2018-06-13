@@ -45,8 +45,8 @@ export class DemoPage {
 
     this.http.get('http://localhost:4003/api/user/getUsersList', {}, { "Access-Control-Allow-Origin": '*' })
       .then((data) => {
-
-        console.log(data)
+        this.items = JSON.parse(data.data).data
+       console.log(JSON.parse(data.data).data)
 
       })
       .catch( (error) => {

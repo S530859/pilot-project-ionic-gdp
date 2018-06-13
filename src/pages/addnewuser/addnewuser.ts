@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HTTP } from '@ionic-native/http';
 
 /**
  * Generated class for the AddnewuserPage page.
@@ -16,9 +17,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class AddnewuserPage {
   firstname: string;
   lastname: string;
-  male: boolean;
-  female: boolean;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  gender: any;
+  status: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,private http:HTTP) {
   }
 
   ionViewDidLoad() {
@@ -29,8 +31,16 @@ export class AddnewuserPage {
       console.log('ionviewwillappear addnewuserpage')
   }
 
-  signup(){
-    console.log(this.firstname,this.lastname,this.male,this.female)
+  signup(form){
+    console.log(this.firstname,this.lastname,this.gender)
+    console.log(form.value)
+    this.http.post('http://localhost:4003/api/user/signup', form.value,{}).then((message) => {
+        console.log(message)
+        this.navCtrl.pop()
+    }).catch((error) => {
+        console.log(error)
+    })
+
   }
 
 }
