@@ -39,7 +39,8 @@ export class HomePage {
 
       }); 
  
-
+    const profileModal = this.modalCtrl.create(DemoPage, { userId: 8675309 });
+    profileModal.present();
   
  
   }
