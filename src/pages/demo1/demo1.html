@@ -14,9 +14,40 @@
 
 
 <ion-content padding>
-  <ion-item>{{ selecteduser?.firstName }}</ion-item>
-  <ion-item>{{ selecteduser?.lastName }}</ion-item>
-  <ion-item>{{ selecteduser?.gender }}</ion-item>
-  <ion-item>{{ selecteduser?.email }}</ion-item>
-  <ion-item>{{ selecteduser?.dob }}</ion-item>
+  <ion-card>
+    <ion-card-header>
+      First Name
+    </ion-card-header>
+    <ion-card-content>{{ selecteduser?.firstName }}
+     </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Last Name
+    </ion-card-header>
+    <ion-card-content>{{ selecteduser?.lastName }}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Gender
+    </ion-card-header>
+    <ion-card-content>{{ selecteduser?.gender }}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Email
+    </ion-card-header>
+    <ion-card-content>{{ selecteduser?.email }}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      DOB
+    </ion-card-header>
+    <ion-card-content>{{ selecteduser?.dob }}
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>

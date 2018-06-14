@@ -43,7 +43,7 @@ export class DemoPage {
     //   "Access-Control-Allow-Headers": 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json'
     // }
 
-    this.http.get('http://localhost:4003/api/user/getUsersList', {}, { "Access-Control-Allow-Origin": '*' })
+    this.http.get('https://floating-depths-71852.herokuapp.com/api/user/getUsersList', {}, { "Access-Control-Allow-Origin": '*' })
       .then((data) => {
         this.items = JSON.parse(data.data).data
        console.log(JSON.parse(data.data).data)

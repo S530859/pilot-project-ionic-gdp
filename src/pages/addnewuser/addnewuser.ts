@@ -34,7 +34,7 @@ export class AddnewuserPage {
   signup(form){
     console.log(this.firstname,this.lastname,this.gender)
     console.log(form.value)
-    this.http.post('http://localhost:4003/api/user/signup', form.value,{}).then((message) => {
+    this.http.post('https://floating-depths-71852.herokuapp.com/api/user/signup', form.value,{}).then((message) => {
         console.log(message)
         this.navCtrl.pop()
     }).catch((error) => {
